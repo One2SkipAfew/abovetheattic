@@ -259,8 +259,19 @@ if (mailingForm && mailingSubmit) {
     mailingError.style.display = 'none';
     
     try {
-      // TODO: Replace with actual Supabase integration
-      await new Promise(resolve => setTimeout(resolve, 1000));
+      // Submit AJAX POST request to Netlify Forms endpoint
+      const formData = new URLSearchParams();
+      formData.append('form-name', 'mailing-list');
+      formData.append('name', name);
+      formData.append('email', email);
+      
+      const response = await fetch('/', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+        body: formData.toString()
+      });
+      
+      if (!response.ok) throw new Error('Failed to subscribe');
       
       // Clear forms and show modal success
       mailingForm.reset();

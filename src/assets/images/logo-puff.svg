@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 120" fill="none">
+  <!-- Left P (Mustard) -->
+  <path d="M25 15 h30 c19.3 0 35 15.7 35 35 c0 19.3 -15.7 35 -35 35 h-10 v20 h-15 v-90 z M40 30 v35 h15 c11 0 20 -9 20 -20 c0 -11 -9 -20 -20 -20 h-15 z" fill="#E1AD01" fill-rule="evenodd"/>
+  
+  <!-- Right P (Olive) Overlapping -->
+  <path d="M55 35 h30 c19.3 0 35 15.7 35 35 c0 19.3 -15.7 35 -35 35 h-10 v15 h-15 v-85 z M70 50 v35 h15 c11 0 20 -9 20 -20 c0 -11 -9 -20 -20 -20 h-15 z" fill="#556B2F" fill-rule="evenodd"/>
+</svg>

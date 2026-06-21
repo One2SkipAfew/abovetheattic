@@ -200,13 +200,14 @@ if (contactForm && contactSubmit) {
     contactSubmit.disabled = true;
     
     try {
-      const response = await fetch('https://formsubmit.co/ajax/admin@fromb2c.africa', {
+      const response = await fetch('https://formsubmit.co/ajax/admin+ata@fromb2c.africa', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
           'Accept': 'application/json'
         },
         body: JSON.stringify({
+          _subject: "Above The Attic - New Contact Message",
           name: `${firstName} ${lastName}`,
           email: email,
           message: message
@@ -259,16 +260,18 @@ if (mailingForm && mailingSubmit) {
     mailingError.style.display = 'none';
     
     try {
-      // Submit AJAX POST request to Netlify Forms endpoint
-      const formData = new URLSearchParams();
-      formData.append('form-name', 'mailing-list');
-      formData.append('name', name);
-      formData.append('email', email);
-      
-      const response = await fetch('/', {
+      // Submit AJAX POST request to FormSubmit endpoint
+      const response = await fetch('https://formsubmit.co/ajax/admin+ata@fromb2c.africa', {
         method: 'POST',
-        headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-        body: formData.toString()
+        headers: {
+          'Content-Type': 'application/json',
+          'Accept': 'application/json'
+        },
+        body: JSON.stringify({
+          _subject: "Above The Attic - New Mailing List Subscriber",
+          name: name,
+          email: email
+        })
       });
       
       if (!response.ok) throw new Error('Failed to subscribe');

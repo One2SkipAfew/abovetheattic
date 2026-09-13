@@ -320,14 +320,61 @@ if (sliderGrid && prevBtn && nextBtn) {
     sliderGrid.scrollBy({ left: -getScrollAmount(), behavior: 'smooth' });
   });
 
-  sliderGrid.addEventListener('scroll', () => {
+  // ── Dot indicators ──
+  const dotsContainer = document.getElementById('slider-dots');
+  const swipeHint = document.getElementById('slider-swipe-hint');
+  const cards = sliderGrid.querySelectorAll('.platform-card');
+  let hasScrolled = false;
+
+  if (dotsContainer && cards.length > 0) {
+    cards.forEach((_, i) => {
+      const dot = document.createElement('button');
+      dot.className = 'slider-dot' + (i === 0 ? ' active' : '');
+      dot.setAttribute('aria-label', `Go to platform ${i + 1}`);
+      dot.addEventListener('click', () => {
+        const card = cards[i];
+        sliderGrid.scrollTo({ left: card.offsetLeft - sliderGrid.offsetLeft, behavior: 'smooth' });
+      });
+      dotsContainer.appendChild(dot);
+    });
+  }
+
+  function updateSliderState() {
     const isAtStart = sliderGrid.scrollLeft <= 15;
     const maxScrollLeft = sliderGrid.scrollWidth - sliderGrid.clientWidth;
     const isAtEnd = sliderGrid.scrollLeft >= maxScrollLeft - 15;
-    
+
     prevBtn.disabled = isAtStart;
     nextBtn.disabled = isAtEnd;
-  }, { passive: true });
+
+    // Update active dot
+    if (dotsContainer) {
+      const dots = dotsContainer.querySelectorAll('.slider-dot');
+      const scrollLeft = sliderGrid.scrollLeft;
+      let activeIndex = 0;
+
+      cards.forEach((card, i) => {
+        const cardLeft = card.offsetLeft - sliderGrid.offsetLeft;
+        if (scrollLeft >= cardLeft - card.offsetWidth / 2) {
+          activeIndex = i;
+        }
+      });
+
+      dots.forEach((dot, i) => {
+        dot.classList.toggle('active', i === activeIndex);
+      });
+    }
+
+    // Hide swipe hint after first scroll
+    if (!hasScrolled && sliderGrid.scrollLeft > 30 && swipeHint) {
+      hasScrolled = true;
+      swipeHint.style.opacity = '0';
+      swipeHint.style.transition = 'opacity 0.4s ease-out';
+      setTimeout(() => { swipeHint.style.display = 'none'; }, 400);
+    }
+  }
+
+  sliderGrid.addEventListener('scroll', updateSliderState, { passive: true });
 }
 
 // ── Coming Soon card "Get Notified" smooth scroll & focus ──

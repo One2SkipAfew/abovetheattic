@@ -505,6 +505,73 @@
   height: 20px;
 }
 
+/* Pulse animation on next arrow to hint scrollability */
+.slider-arrow--next:not(:disabled) {
+  animation: arrowPulse 2s ease-in-out infinite;
+}
+
+.slider-arrow--next:hover {
+  animation: none;
+}
+
+@keyframes arrowPulse {
+  0%, 100% { box-shadow: var(--shadow-md); }
+  50% { box-shadow: 0 4px 20px rgba(50, 170, 221, 0.35), 0 0 0 6px rgba(50, 170, 221, 0.1); }
+}
+
+/* ── Mobile swipe hint ── */
+.slider-swipe-hint {
+  display: none;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-2);
+  padding: var(--space-3) 0;
+  font-size: var(--font-size-sm);
+  color: var(--color-grey-500);
+  font-weight: var(--font-weight-medium);
+  animation: swipeHintFade 3s ease-in-out infinite;
+}
+
+.slider-swipe-hint svg {
+  width: 18px;
+  height: 18px;
+  animation: swipeHintSlide 1.5s ease-in-out infinite;
+}
+
+@keyframes swipeHintFade {
+  0%, 100% { opacity: 0.5; }
+  50% { opacity: 1; }
+}
+
+@keyframes swipeHintSlide {
+  0%, 100% { transform: translateX(0); }
+  50% { transform: translateX(6px); }
+}
+
+/* ── Slider dot indicators ── */
+.slider-dots {
+  display: none;
+  justify-content: center;
+  gap: var(--space-2);
+  padding-top: var(--space-4);
+}
+
+.slider-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: var(--radius-full);
+  background: var(--color-grey-300);
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  transition: all var(--duration-fast) var(--ease-out);
+}
+
+.slider-dot.active {
+  width: 24px;
+  background: var(--color-sky-blue);
+}
+
 
 /* ═══════════════════════════════════════════
    SECTION 3: Coming Soon / Mailing List
@@ -911,6 +978,14 @@
 
   .slider-arrow {
     display: none;
+  }
+
+  .slider-swipe-hint {
+    display: flex;
+  }
+
+  .slider-dots {
+    display: flex;
   }
 
   .coming-soon {

@@ -21,6 +21,16 @@ Above the Attic (ATA) is a modern web application acting as a gateway and dashbo
    - **Description**: Own your digital identity. Decide who sees your data, what you share, and for how long.
    - **URL**: [yimlo.africa](https://yimlo.africa)
 
+4. **TutorMina**
+   - **Tagline**: Africa's Tutoring & Coaching Marketplace
+   - **Description**: Find expert tutors for Grades 0–12 and varsity, or connect with executive and life coaches.
+   - **URL**: [tutormina.africa](https://tutormina.africa)
+
+5. **BADIC**
+   - **Tagline**: BA Digital Intelligence Centre
+   - **Description**: Consolidates fragmented data sets to assist Business Analysts with fast-tracking the SDLC while ensuring accuracy, completeness, and adherence to industry standards when preparing specs.
+   - **URL**: [about.badic.app](https://about.badic.app)
+
 ---
 
 ## Key Features

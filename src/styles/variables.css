@@ -71,6 +71,8 @@
   --color-yimlo-glow:   rgba(44, 94, 162, 0.25);
   --color-tutormina:    #74b445;
   --color-tutormina-glow: rgba(116, 180, 69, 0.25);
+  --color-badic:        #267C94;
+  --color-badic-glow:   rgba(38, 124, 148, 0.25);
 
   /* ── Semantic ── */
   --color-primary:      var(--color-sky-blue);

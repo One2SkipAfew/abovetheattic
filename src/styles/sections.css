@@ -263,6 +263,9 @@
 .platform-card--tutormina .platform-card-glow {
   background: linear-gradient(135deg, var(--color-tutormina-glow), transparent 60%);
 }
+.platform-card--badic .platform-card-glow {
+  background: linear-gradient(135deg, var(--color-badic-glow), transparent 60%);
+}
 
 /* Card content */
 .platform-card-content {
@@ -317,6 +320,7 @@
 .platform-card--puff .platform-icon { color: var(--color-puff); }
 .platform-card--yimlo .platform-icon { color: var(--color-yimlo); }
 .platform-card--tutormina .platform-icon { color: var(--color-tutormina); }
+.platform-card--badic .platform-icon { color: var(--color-badic); }
 
 .platform-icon svg,
 .platform-icon img {
@@ -345,6 +349,7 @@
 .platform-card--puff .platform-tagline { color: var(--color-puff); }
 .platform-card--yimlo .platform-tagline { color: var(--color-yimlo); }
 .platform-card--tutormina .platform-tagline { color: var(--color-tutormina); }
+.platform-card--badic .platform-tagline { color: var(--color-badic); }
 
 .platform-description {
   font-size: var(--font-size-base);
@@ -368,6 +373,7 @@
 .platform-card--puff .platform-link { color: var(--color-puff); }
 .platform-card--yimlo .platform-link { color: var(--color-yimlo); }
 .platform-card--tutormina .platform-link { color: var(--color-tutormina); }
+.platform-card--badic .platform-link { color: var(--color-badic); }
 
 .platform-link svg {
   width: 18px;
@@ -409,6 +415,9 @@
 }
 .platform-card--tutormina::before {
   background: linear-gradient(90deg, var(--color-tutormina), #d2dfa8);
+}
+.platform-card--badic::before {
+  background: linear-gradient(90deg, var(--color-badic), var(--color-sky-blue));
 }
 
 .platform-card--coming-soon::before {
